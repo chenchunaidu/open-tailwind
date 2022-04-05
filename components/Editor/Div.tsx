@@ -1,23 +1,25 @@
 import React from "react";
-import { Text } from "@mantine/core";
+import { Box } from "@mantine/core";
 import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
 import { editorStateAtom } from "../../atoms/editor.atom";
 import useUpdateBlockProps from "../../hooks/useUpdateBlockProps";
+import { BoxSx } from "@mantine/core/lib/components/Box/use-sx/use-sx";
 
-export interface CustomTextProps {
+export interface CustomDivProps {
   content?: string;
 }
 
-const CustomText: React.FC<BlockComponentProps> = ({ blockId }) => {
+const CustomDiv: React.FC<BlockComponentProps> = ({ blockId }) => {
   const [block] = useRecoilState(editorStateAtom);
   const [updateEditorProps] = useUpdateBlockProps();
   const currentBlock = block[blockId];
   const { props } = currentBlock;
-  const { content } = props as CustomTextProps;
+
+  const { content, ...styles } = props as CustomDivProps;
 
   return (
-    <Text
+    <Box
       contentEditable="true"
       suppressContentEditableWarning={true}
       onBlur={(e: React.FormEvent<HTMLDivElement>) =>
@@ -27,11 +29,11 @@ const CustomText: React.FC<BlockComponentProps> = ({ blockId }) => {
           value: e?.currentTarget?.innerText,
         })
       }
-      {...props}
+      sx={{ ...styles } as BoxSx}
     >
       {content}
-    </Text>
+    </Box>
   );
 };
 
-export default CustomText;
+export default CustomDiv;

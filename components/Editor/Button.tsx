@@ -1,4 +1,3 @@
-import { Button } from "@mantine/core";
 import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
 import { editorStateAtom } from "../../atoms/editor.atom";
@@ -23,7 +22,7 @@ const CustomButton: React.FC<BlockComponentProps> = ({ blockId }) => {
   };
 
   return (
-    <Button
+    <button
       contentEditable="true"
       suppressContentEditableWarning={true}
       onBlur={(e: React.FocusEvent<HTMLButtonElement>) =>
@@ -37,7 +36,7 @@ const CustomButton: React.FC<BlockComponentProps> = ({ blockId }) => {
       {...props}
     >
       {label}
-    </Button>
+    </button>
   );
 };
 

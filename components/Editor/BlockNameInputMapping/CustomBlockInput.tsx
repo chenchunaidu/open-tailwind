@@ -1,11 +1,11 @@
 import { TextInput, TextInputProps } from "@mantine/core";
 import React from "react";
 
-interface CustomTextInputProps extends Omit<TextInputProps, "onChange"> {
+interface CustomTextBlockProps extends Omit<TextInputProps, "onChange"> {
   onChange: (input: string) => void;
 }
 
-const CustomTextInput: React.FC<CustomTextInputProps> = ({
+const CustomTextInput: React.FC<CustomTextBlockProps> = ({
   onChange,
   ...props
 }) => {

@@ -6,12 +6,12 @@ import Column from "./Column";
 import CustomImage from "./Image";
 import CustomList from "./List";
 import Row from "./Row";
-import CustomText from "./Text";
+import CustomDiv from "./Div";
 import { Heading1, Heading2, Heading3 } from "./Title";
 
 export const blockNameComponentMapping = {
   Rows: { component: Row, props: { p: "md" } },
-  Text: { component: CustomText, props: { content: "Text" } },
+  Block: { component: CustomDiv, props: { content: "Text" } },
   Columns: {
     component: Column,
     props: { p: "md" },
